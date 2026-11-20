@@ -1,0 +1,11 @@
+**/.venv
+**/node_modules
+**/.next
+**/.git
+**/.browser_profile
+**/data/saved_pages
+**/__pycache__
+**/*.pyc
+**/collector.log
+**/reviews.db
+dashboard/README.md

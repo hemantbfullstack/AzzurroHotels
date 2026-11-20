@@ -1,0 +1,22 @@
+{
+  "name": "azzurro-hotels",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Booking.com public review collector + Azzurro operations dashboard",
+  "scripts": {
+    "scrape:capture": "python run.py capture",
+    "scrape:local": "python run.py local",
+    "dashboard:sync": "npm run sync-data --prefix dashboard",
+    "dashboard:dev": "npm run dev --prefix dashboard",
+    "dashboard:build": "npm run build --prefix dashboard",
+    "dashboard:start": "npm run start --prefix dashboard",
+    "build": "npm run dashboard:build",
+    "start": "npm run dashboard:start",
+    "docker:build": "docker build -f dashboard/Dockerfile -t azzurro-dashboard .",
+    "docker:up": "docker compose up --build -d",
+    "docker:down": "docker compose down"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

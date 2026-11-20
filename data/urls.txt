@@ -1,0 +1,1 @@
+# See files/urls.txt for the hotel URL list used by the scraper.
