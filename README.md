@@ -72,12 +72,14 @@ docker compose up --build -d
 
 ### Production (Vercel)
 
-1. Ensure `dashboard/data/reviews.json` exists (`cd dashboard && npm run sync-data`).
-2. Push the repo to GitHub.
-3. Import the project in Vercel.
-4. Set **Root Directory** to `dashboard`.
-5. Deploy with the default Next.js build settings.
-6. Confirm `/api/health` returns a successful status and review count.
+1. Push this repo to GitHub (sample data is already in `dashboard/data/reviews.json` and `output/reviews.json`).
+2. In Vercel → **Add New Project** → import `hemantbfullstack/AzzurroHotels`.
+3. Set **Root Directory** to `dashboard` (important — not the repo root).
+4. Framework Preset: **Next.js**. Leave Build Command / Output as defaults (`npm run build`).
+5. Deploy.
+6. Open the deployment URL and check `/api/health` for a successful status and review count.
+
+If a previous deploy failed on `prepare-standalone`, redeploy after the latest `main` (that step is skipped on Vercel).
 
 Refresh flow after new scrapes: run the scraper locally, sync data, commit `dashboard/data/reviews.json`, redeploy.
 

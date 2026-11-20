@@ -14,9 +14,14 @@ const staticDir = path.resolve(root, ".next", "static");
 const publicDir = path.resolve(root, "public");
 const dataFile = path.resolve(root, "data", "reviews.json");
 
-if (!existsSync(standalone)) {
-  console.error("Missing .next/standalone — did next build succeed with output: 'standalone'?");
-  process.exit(1);
+// Vercel disables `output: 'standalone'` — skip this Docker/VPS helper there.
+if (process.env.VERCEL === "1" || !existsSync(standalone)) {
+  if (process.env.VERCEL === "1") {
+    console.log("Skipping standalone prepare on Vercel");
+  } else {
+    console.log("Skipping standalone prepare (.next/standalone not present)");
+  }
+  process.exit(0);
 }
 if (!existsSync(dataFile)) {
   console.error("Missing data/reviews.json — run npm run sync-data first");
